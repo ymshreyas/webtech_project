@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet"/>
+    <style>
+      .jumbotron{
+        margin-top: 25px;
+        margin-bottom: 25px;
+        padding: 20px 40px 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        opacity: 3.8;
+        word-wrap: break-word;
+    }
+    .jumbotron0{
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left: 25%;
+        margin-right: 25%;
+        padding: 20px 40px 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        opacity: 3.8;
+        word-wrap: break-word;
+    }
+    </style>
+</head>
+<body style="background-color: aliceblue;"> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand me-2" href="#">
+            <img
+              src="https://i.pinimg.com/736x/3d/87/47/3d8747cb5e98c8d7856479ed428c07ed.jpg"
+              height="36"
+              alt="MDB Logo"
+              loading="lazy"
+              style="margin-top: -1px;"
+            />
+          </a>
+          
+          <button
+            data-mdb-collapse-init
+            class="navbar-toggler"
+            type="button"
+            data-mdb-target="#navbarButtonsExample"
+            aria-controls="navbarButtonsExample"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarButtonsExample">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+            </ul>
+            <div class="d-flex align-items-right">
+              {% if user.is_authenticated %}
+                <a href="{%url 'user_logout'%}" data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">Logout</a>
+              {% else %}
+                <a href="{%url 'user_login'%}" data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">Login</a>
+              {% endif %}
+            </div>
+            <a href="{%url 'generate'%}" type="button" class="btn btn-primary" target="_blank" data-mdb-ripple-init >Create new Plot</a>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-md">
+            <h1 style="margin-top: 15px; margin-left: 5px; text-align: center;">Your Recent Plot History</h1>
+            {%if plot == 0 %}
+            <div class="jumbotron0">
+              <h3 align="center">No plots generated yet</h3>
+              <h5 align="center">Start your journey now</h5>
+            </div>
+            {%else%}
+            {%for plt in plot%}
+            <div class="jumbotron">
+              <p><strong>Analysis Type : </strong>{{plt.analysis_type}}</p>
+              <p><strong>Scrip Code : &nbsp</strong>{{plt.select1}} {{plt.select2}}</p>
+              <p><strong>Period 1 : </strong>{{plt.period1}}</p>
+              <p><strong>Period 2 : </strong>{{plt.period2}}</p>
+              <p><strong>Period 3 : </strong>{{plt.period3}}</p>
+              <p><strong>Price Lines : &nbsp</strong>{{plt.select3}}</p>
+              <p><strong>Start Date : &nbsp</strong>{{plt.start_date}}</p>
+              <p><strong>End Date : &nbsp</strong>{{plt.end_date}}</p>
+            </div>
+            {%endfor%}
+            {%endif%}
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>

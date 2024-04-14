@@ -1,0 +1,75 @@
+<head>
+  <title>Login</title>
+</head>
+{% extends 'webtech_app/base.html'%}
+{% block body_block %}
+<head>
+    <style>
+        body{
+            padding-left: 30%;
+            padding-right: 30%;
+            background-color: azure;
+        }
+        .container{
+            background-color: whitesmoke;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            margin-top: 10%;
+            padding-left: 5%;
+            padding-right: 5%;
+            border-radius: 50px;
+        }
+        #btn{
+            margin-left: 25%;
+            width: 50%;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<body>
+    <br><br>
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data" action="{%url 'user_login'%}" >
+          {% csrf_token %}
+            <br>
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input name="email" type="email" id="form2Example1" class="form-control" required />
+              <label class="form-label" for="form2Example1">Email</label>
+            </div>
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input name="password" type="password" id="form2Example2" class="form-control" required />
+              <label class="form-label" for="form2Example2">Password</label>
+            </div>
+            <br>
+            <!-- Submit button -->
+            <input id="btn" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init type="submit" value="Sign In">
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Not a member? <a href="{%url 'signup'%}" target="_blank">Register</a></p>
+              <p>or sign up with:</p>
+              <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+              <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+              <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+              <button  data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+          </form>
+    </div>
+</body>
+{% endblock %}

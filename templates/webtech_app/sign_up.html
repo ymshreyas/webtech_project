@@ -1,0 +1,79 @@
+<head>
+  <title>Sign Up</title>
+</head>
+{%extends 'webtech_app/base.html'%}
+{% block body_block%}
+<head>
+    <style>
+        body{
+            padding-left: 30%;
+            padding-right: 30%;
+            background-color: azure;
+        }
+        .container{
+            background-color: whitesmoke;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            margin-top: 20%;
+            padding-left: 5%;
+            padding-right: 5%;
+            border-radius: 50px;
+        }
+        #btn{
+            margin-left: 25%;
+            width: 50%;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<body>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" action="{%url 'signup'%}">
+          {% csrf_token %}
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="form3Example3" name="email" class="form-control" required>
+              <label class="form-label" for="form3Example3">Email address</label>
+            </div>
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="password" id="form3Example4" name="password" class="form-control" required>
+              <label class="form-label" for="form3Example4">Password</label>
+            </div>
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="password" id="form3Example5" name="retype_password" class="form-control" required>
+              <label class="form-label" for="form3Example5">Re-type Password</label>
+            </div>
+            <!-- Submit button -->
+            <input id="btn" data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" value="Sign Up">
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>or sign up with:</p>
+              <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-facebook-f"></i>
+              </button>
+          
+              <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-google"></i>
+              </button>
+          
+              <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-twitter"></i>
+              </button>
+          
+              <button data-mdb-ripple-init type="button" class="btn btn-secondary btn-floating mx-1">
+                <i class="fab fa-github"></i>
+              </button>
+            </div>
+          </form>
+    </div>
+</body>
+{% endblock %}

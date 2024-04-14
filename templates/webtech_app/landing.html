@@ -1,0 +1,154 @@
+<title>Landing Page</title>
+{%extends 'webtech_app/base.html'%}
+{% block body_block%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Play&family=Ubuntu&display=swap" rel="stylesheet">
+  <style>
+    .row.content {height: 550px}
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    @media screen and (max-width: 767px) {
+      .row.content {height: auto;} 
+    }
+    body{
+      background-color: aliceblue;
+    }
+  </style>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row content">
+    <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand me-2" href="#">
+          <img
+            src="https://i.pinimg.com/736x/3d/87/47/3d8747cb5e98c8d7856479ed428c07ed.jpg"
+            height="36"
+            alt="MDB Logo"
+            loading="lazy"
+            style="margin-top: -1px;"
+          />
+        </a>
+        
+        <button
+          data-mdb-collapse-init
+          class="navbar-toggler"
+          type="button"
+          data-mdb-target="#navbarButtonsExample"
+          aria-controls="navbarButtonsExample"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarButtonsExample">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="{%url 'admin:index'%}">Admin</a>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center">
+            <a href="{%url 'user_login'%}" data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2" >Login</a>
+            <a href="{%url 'signup'%}" target="_blank" data-mdb-ripple-init type="button" class="btn btn-primary me-3" >Sign Up For Free</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br>
+    <div class="container-fluid">
+      <br><h1 align="center" style="font-family: 'Ubuntu', sans-serif;">Stock Market Technical Analysis</h1>
+      <div>
+        <iframe src="{% url 'child_page1' %}" frameborder="2" width="735px" height="735px"></iframe>
+        <iframe src="{% url 'child_page2' %}" frameborder="2" width="735px" height="735px"></iframe>
+        <iframe src="{% url 'child_page3' %}" frameborder="2" width="735px" height="735px"></iframe>
+        <iframe src="{% url 'child_page4' %}" frameborder="2" width="735px" height="735px"></iframe>
+      </div>
+      <div class="container-fluid"> 
+        <footer>
+          <div class="container-fluid tm-container-small">
+            <div class="row">
+              <div class="col-md-4 col-sm-6">
+                <div class="card col-md-4 col-sm-6" style="width: 25rem; margin-left: 20px; border-radius: 20px;">
+                  <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                    <img src="media\pics\SMA.png" class="img-fluid"/>
+                    <a href="#!">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">SMA</h5>
+                    <p style="text-align: justify;" class="card-text">Simple Moving Averages (SMAs) smooth price data in stock analysis, aiding trend identification and support/resistance level detection. Calculated over defined intervals, they inform traders for informed decisions, crucial in technical analysis strategies.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="card col-md-4 col-sm-6" style="width: 25rem; margin-left: 20px; border-radius: 20px;">
+                  <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                    <img src="media\pics\MACD.png" class="img-fluid"/>
+                    <a href="#!">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">MACD</h5>
+                    <p style="text-align: justify;" class="card-text">Moving Average Convergence Divergence (MACD) in stock market analysis measures the convergence or divergence of two exponential moving averages, typically the 12-period and 26-period EMAs. It helps traders identify trend reversals, momentum shifts, and potential buy or sell signals, enhancing decision-making in technical analysis strategies.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6">
+                <div class="card col-md-4 col-sm-6" style="width: 25rem; margin-left: 20px; border-radius: 20px;">
+                  <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                    <img src="media\pics\bollinger.png" class="img-fluid"/>
+                    <a href="#!">
+                      <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                    </a>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">Bollinger Bands</h5>
+                    <p style="text-align: justify;" class="card-text">Bollinger Bands in stock market analysis consist of a moving average line with upper and lower bands that represent standard deviations from the average. They help traders gauge volatility, identify potential price reversal points, and determine overbought or oversold conditions, crucial for making informed trading decisions.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>  
+              <div class="row">
+                  <div class="col-lg-6 col-md-12 col-12 px-5 mb-5">
+                      <h3 class="tm-text-primary mb-4 tm-footer-title">About Stock Market</h3>
+                      <p style="text-align: justify;">The stock market is a platform where investors buy and sell shares of publicly traded companies. It serves as a barometer of economic health, reflecting investor sentiment and corporate performance, while offering opportunities for individuals and institutions to invest and potentially grow their wealth.</p>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6 ">
+                      <h3 class="tm-text-primary mb-4 tm-footer-title">Our Links</h3>
+                      <a class="btn text-white" data-mdb-ripple-init style="background-color: #3b5998;" href="#!" role="button">
+                        <i class="fab fa-facebook-f"></i>
+                      </a>
+                      <a class="btn text-white" data-mdb-ripple-init style="background-color: #55acee;" href="#!" role="button">
+                        <i class="fab fa-twitter"></i>
+                      </a>
+                      <a class="btn text-white" data-mdb-ripple-init style="background-color: #ac2bac;" href="#!" role="button">
+                        <i class="fab fa-instagram"></i>
+                      </a>
+                      <a class="btn text-white" data-mdb-ripple-init style="background-color: #0082ca;" href="#!" role="button">
+                        <i class="fab fa-linkedin-in"></i>
+                      </a>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-8 col-md-7 col-12 px-5 mb-3">
+                    &copy; Copyright 2023 Stock Market Analysis. All rights reserved.
+                  </div>
+              </div>
+          </div>
+      </footer>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+{%endblock%}
