@@ -5,14 +5,14 @@ Accessing investment opportunities is hindered by complex and inaccessible data 
 The website's primary objective is to democratize access to financial insights by providing free technical analysis and plots on stock market data. It aims to bridge the educational gap for traders of all levels, offering comprehensive learning resources from basic concepts to advanced strategies. Real-time market data accessibility enhances the relevance of content and fosters practical understanding. By offering these resources for free, the platform promotes financial inclusivity, breaking down barriers to entry and empowering a diverse community of investors. It seeks to instill confidence by enabling users to make informed decisions independently, reducing reliance on biased information sources. Ultimately, the initiative aims to create a more informed, diverse, and resilient community of investors prepared to navigate market fluctuations confidently.
 
 # Techstack used
-## Client
+## Frontend
 1) HTML
 2) CSS
 3) Bootstrap
 4) Plotly
-## Server 
-1) Django
 ## Backend
+1) Django
+## Database
 1) MongoDB 
 
 # Implementation
